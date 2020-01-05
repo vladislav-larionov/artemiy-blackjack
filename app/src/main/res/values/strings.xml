@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Очко Артемия Лебедева</string>
+    <string name="enough_cards">Enough cards</string>
+    <string name="newGame">New game</string>
+    <string name="give_up_btn">Give up</string>
+    <string name="dialog_txt">Ваш дизайн - говно! И вы все.. Стоп. Как я здесь очутился!? Опять эти чёртовы программисты меня стебут!! Ладно, не задерживай, сейчас твоя очередь брать карту.</string>
+    <string name="you_score">You score: </string>
+
+    <string name="title_activity_menu">Menu</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content"> </string>
+    <string name="exit_btn">Exit</string>
+    <string name="choose_sentiment_mode_title">Choose Artemiy\'s sentiment</string>
+    <string name="choose_kind_mode_btn">Kind</string>
+    <string name="choose_normal_mode_btn">Normal</string>
+    <string name="choose_evil_mode_btn">Evil</string>
+</resources>
