@@ -241,28 +241,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickEnough(View view) {
-        cards_img.setClickable(false);
-        give_up_btn.setClickable(false);
-        enough_btn.setClickable(false);
-
+        stopGame();
         while (score_bot < 18)
             botTakeCard();
 
-        if ((score_user <= 21 && score_bot < score_user) || (score_user <= 21 && score_bot > 21) ||
-            ((score_user > 21 && score_bot > 21) && (score_user < score_bot))) {
-            score_txt.setText("You score: " + score_user + "\nBot score: " + score_bot + " \n You win!");
-            botFinalSaing(0);
+        if (isUserWin()) {
+            showWinMessage();
             cnt_bot_win = 0;
         }
-        else if (score_user == score_bot){
-            score_txt.setText("You score equal bot's score. \n\n Drow!");
-            botFinalSaing(1);
+	else if (isDraw()){
+            showDrawMessage();
         }
         else {
-            score_txt.setText("You score: " + score_user + "\nBot score: " + score_bot + "\n You lose!");
-            botFinalSaing(2);
+            showLoseMessage();
             cnt_bot_win++;
         }
+    }
+
+    private void stopGame()
+    {
+        cards_img.setClickable(false);
+        give_up_btn.setClickable(false);
+        enough_btn.setClickable(false);
+    }
+
+    private boolean isUserWin()
+    {
+        return (score_user <= 21 && score_bot < score_user) ||
+                (score_user <= 21 && score_bot > 21) ||
+                ((score_user > 21 && score_bot > 21) && (score_user < score_bot));
+    }
+
+    private void showWinMessage()
+    {
+        score_txt.setText("You score: " + score_user + "\nBot score: " + score_bot + " \n You win!");
+        botFinalSaing(0);
+    }
+
+    private boolean isDraw()
+    {
+        return score_user == score_bot;
+    }
+
+    private void showDrawMessage()
+    {
+        score_txt.setText("You score equal bot's score. \n\n Draw!");
+        botFinalSaing(1);
+    }
+
+    private void showLoseMessage()
+    {
+        score_txt.setText("You score: " + score_user + "\nBot score: " + score_bot + "\n You lose!");
+        botFinalSaing(2);
     }
 
     public void onClickNewGame(View view) {
